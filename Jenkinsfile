@@ -3,6 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
+        sh '{ IFS=:; ls -H $PATH; } | sort'
         sh 'zip dist *.sh'
         archiveArtifacts(fingerprint: true, onlyIfSuccessful: true, artifacts: 'dist.zip')
       }
