@@ -4,6 +4,8 @@ pipeline {
     stage('Build') {
       steps {
         sh '{ IFS=:; ls -H $PATH; } | sort'
+        sh 'pwd'
+        sh 'ls -ltr'
         sh 'tar -cjf  dist.tar.bz2 *.sh'
         archiveArtifacts(fingerprint: true, onlyIfSuccessful: true, artifacts: 'dist.tar.bz2')
       }
