@@ -6,7 +6,7 @@ pipeline {
         sh '{ IFS=:; ls -H $PATH; } | sort'
         sh 'pwd'
         sh 'ls -ltr'
-        sh 'tar -cjf  dist.tar.bz2 *.sh'
+        sh 'tar -cjf  dist.tar.bz2 README.md Jenkinsfile'
         archiveArtifacts(fingerprint: true, onlyIfSuccessful: true, artifacts: 'dist.tar.bz2')
       }
     }
